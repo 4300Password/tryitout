@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Test the security of a password!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/lock2-resize.png" alt="" /></span>
+						<h1>Password Security</h1>
+						<p>See just how secure a password really is!</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#first">Test your password</a></li>
+							<li><a href="#intro" class="active">About security</a></li>
+							
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Test a password!</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<input id="search-bar" type="password" size="50" onkeyup="run_enthropy()" />
+
+									    <div id="search-results"></div>
+									</li>
+								</ul>
+								<footer class="major">
+									<ul class="actions">
+										<li><a href="https://krebsonsecurity.com/password-dos-and-donts/" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Problems with passwords</h2>
+										</header>
+										<p>
+										
+<b>Dictionary attacks</b>: Avoid consecutive keyboard combinations— such as qwerty or asdfg. Don’t use dictionary words, slang terms, common misspellings, or words spelled backward. These cracks rely on software that automatically plugs common words into password fields. Password cracking becomes almost effortless with a tool like John the Ripper or similar programs.
+</p>
+<p>
+<b>Cracking security questions</b>: Many people use first names as passwords, usually the names of spouses, kids, other relatives, or pets, all of which can be deduced with a little research. When you click the “forgot password” link within a webmail service or other site, you’re asked to answer a question or series of questions. The answers can often be found on your social media profile. This is how Sarah Palin’s Yahoo account was hacked.
+</p>
+<p>
+<b>Simple passwords</b>: Don’t use personal information such as your name, age, birth date, child’s name, pet’s name, or favorite color/song, etc. When 32 million passwords were exposed in a breach last year, almost 1% of victims were using “123456.” The next most popular password was “12345.” Other common choices are “111111,” “princess,” “qwerty,” and “abc123.”
+</p>
+<p>
+<b>Reuse of passwords across multiple sites</b>: Reusing passwords for email, banking, and social media accounts can lead to identity theft. Two recent breaches revealed a password reuse rate of 31% among victims.
+</p>
+<p>
+<b>Social engineering</b>: Social engineering is an elaborate type of lying. An alternative to traditional hacking, it is the act of manipulating others into performing certain actions or divulging confidential information.
+</p>
+<p style="font-size: 12px">
+McAfee. “15 Tips To Better Password Security.” McAfee Blogs, 28 Oct. 2016, securingtomorrow.mcafee.com/consumer/family-safety/15-tips-to-better-password-security/.
+</p>
+										<ul class="actions">
+											<li><a href="https://securingtomorrow.mcafee.com/consumer/family-safety/15-tips-to-better-password-security/" class="button">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="images/security.png" alt="" /></span>
+								</div>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="enthropy.js"></script>
+			<script type="text/javascript" src="zxcvbn.js"></script>
+
+	</body>
+</html>
