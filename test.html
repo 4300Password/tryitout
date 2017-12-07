@@ -7,6 +7,122 @@
     <script src="d3-js/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
+<script type="text/javascript">
+function showBoxPlot(chart){
+	chart.violinPlots.hide();
+	chart.boxPlots.show({reset: true});
+	chart.notchBoxes.hide();
+	chart.dataPlots.change({
+		showPlot: false,
+		showBeanLines: false
+	});
+}
+function showNotchedBoxPlot(chart){
+	chart.violinPlots.hide();
+	chart.notchBoxes.show({reset: true});
+	chart.boxPlots.show({
+		reset: true,
+		showBox: false, 
+		showOutliers: true,
+		boxWidth: 20,
+		scatterOutliers: true
+	});
+	chart.dataPlots.change({
+		showPlot:false,
+		showBeanLines:false
+	});
+}
+function showVPU(chart){
+	chart.violinPlots.show({
+		reset: true,
+		clamp: 0
+	});
+	chart.boxPlots.show({
+		reset: true,
+		showWhiskers: false,
+		showOutliers: false,
+		boxWidth: 10,
+		lineWidth: 15,
+		colors:['#555']
+	});
+	chart.notchBoxes.hide();
+	chart.dataPlots.change({
+		showPlot: false,
+		showBeanLines: false
+	})
+}
+function showVPC(chart){
+	chart.violinPlots.show({
+		reset: true,
+		clamp: 1
+	});
+	chart.boxPlots.show({
+		reset: true,
+		showWhiskers: false,
+		showOutliers: false,
+		boxWidth: 10,
+		lineWidth: 15,
+		colors:['#555']
+	});
+	chart.notchBoxes.hide();
+	chart.dataPlots.change({
+		showPlot: false,
+		showBeanLines: false
+	});
+}
+function showBeanPlot(chart){
+	chart.violinPlots.show({
+		reset: true,
+		width: 75,
+		clamp: 0,
+		resolution: 30,
+		bandwidth:50
+	});
+	chart.dataPlots.show({
+		showBeanLines: true,
+		beanWidth:15,
+		showPlot:false,
+		colors:['#555']
+	});
+	chart.boxPlots.hide();
+	chart.notchBoxes.hide();
+}
+function showBeeswarmPlot(chart){
+	chart.violinPlots.hide();
+	chart.dataPlots.show({
+		showPlot: true,
+		plotType: 'beeswarm',
+		showBeanLines: false,
+		colors:null
+	});
+	chart.notchBoxes.hide();
+	chart.boxPlots.hide();
+}
+function showScatterPlot(chart){
+	chart.violinPlots.hide();
+	chart.dataPlots.show({
+		showPlot: true,
+		plotType: 40,
+		showBeanLines: false,
+		colors: null
+	});
+	chart.notchBoxes.hide();
+	chart.boxPlots.hide();
+}
+function showTrendLines(chart){
+	if(chart.dataPlots.options.showLines){
+		chart.dataPlots.change({showLines: false});
+	} else {
+		chart.dataPlots.change({showLines:['median','quartile1','quartile3']});
+	}
+}
+function hideChart(chart){
+	chart.boxPlots.hide();
+	chart.dataPlots.hide();
+	chart.notchBoxes.hide();
+	chart.violinPlots.hide();
+}
+</script>
 <h1>Password Entropy Across Time</h1>
 <h2>Shannon Entropy of Passwords Across Time</h2>
 <p>
@@ -91,7 +207,68 @@
 </div>
 
 <script src="d3-js/distrochart.js" charset="utf-8"></script>
-<script src="graphactions.js"</script>
-<script src="ds3actions.js"</script>
+<script type="text/javascript">
+    var chart1, chart2, chart3, chart4;
+    d3.csv('data/date-shannon.csv', function(error, data) {
+        data.forEach(function (d) {d.value = +d.value;});
+        chart1 = makeDistroChart({
+            data:data,
+            xName:'date',
+            yName:'value',
+            axisLabels: {xAxis: "Date", yAxis: 'Shannon Entropy'},
+            selector:"#chart-distro1",
+            chartSize:{height:460, width:960},
+            constrainExtremes:true});
+        chart1.renderBoxPlot();
+        chart1.renderDataPlots();
+        chart1.renderNotchBoxes({showNotchBox:false});
+        chart1.renderViolinPlot({showViolinPlot:false});
+    });
+    d3.csv('data/date-logbase2.csv', function(error, data) {
+        data.forEach(function (d) {d.value = +d.value;});
+        chart2 = makeDistroChart({
+            data:data,
+            xName:'date',
+            yName:'value',
+            axisLabels: {xAxis: "Date", yAxis: 'Log Base 2 Entropy'},
+            selector:"#chart-distro2",
+            chartSize:{height:460, width:960},
+            constrainExtremes:true});
+        chart2.renderBoxPlot();
+        chart2.renderDataPlots();
+        chart2.renderNotchBoxes({showNotchBox:false});
+        chart2.renderViolinPlot({showViolinPlot:false});
+    });
+    d3.csv('data/domain-shannon.csv', function(error, data) {
+        data.forEach(function (d) {d.value = +d.value;});
+        chart3 = makeDistroChart({
+            data:data,
+            xName:'domain',
+            yName:'value',
+            axisLabels: {xAxis: "Domain", yAxis: 'Shannon Entropy'},
+            selector:"#chart-distro3",
+            chartSize:{height:460, width:960},
+            constrainExtremes:true});
+        chart3.renderBoxPlot();
+        chart3.renderDataPlots();
+        chart3.renderNotchBoxes({showNotchBox:false});
+        chart3.renderViolinPlot({showViolinPlot:false});
+    });
+    d3.csv('data/domain-logbase2.csv', function(error, data) {
+        data.forEach(function (d) {d.value = +d.value;});
+        chart4 = makeDistroChart({
+            data:data,
+            xName:'domain',
+            yName:'value',
+            axisLabels: {xAxis: "Domain", yAxis: 'Log Base 2 Entropy'},
+            selector:"#chart-distro4",
+            chartSize:{height:460, width:960},
+            constrainExtremes:true});
+        chart4.renderBoxPlot();
+        chart4.renderDataPlots();
+        chart4.renderNotchBoxes({showNotchBox:false});
+        chart4.renderViolinPlot({showViolinPlot:false});
+    });
+</script>
 </body>
 </html>
