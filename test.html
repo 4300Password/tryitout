@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Entropy Across Domains</title>
+    <link rel="stylesheet" type="text/css" href="d3-css/distrochart.css">
+    <script src="d3-js/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<h1>Password Entropy Across Time</h1>
+<h2>Shannon Entropy of Passwords Across Time</h2>
+<p>
+	This graph shows the Shannon Entropy of a random sample of the passwords we collected when plotted against the time each data breach occurred.
+	Looking at the the graph, there is no indication of any increase (in fact there is a slight decrease) in median password entropy over time when determined algorithmically by the Shannon Entropy formula.
+</p>
+<div class="chart-wrapper" id="chart-distro1"></div>
+<div class="chart-options">
+    <p>Show: </p>
+    <button onclick="showBoxPlot(chart1);">Box Plot</button>
+    <button onclick="showNotchedBoxPlot(chart1);">Notched Box Plot</button>
+    <button onclick="showVPU(chart1);">Violin Plot Unbound</button>
+    <button onclick="showVPC(chart1);">Violin Plot Clamp to Data</button>
+    <button onclick="showBeanPlot(chart1);">Bean Plot</button>
+    <button onclick="showBeeswarmPlot(chart1);">Beeswarm Plot</button>
+    <button onclick="showScatterPlot(chart1);">Scatter Plot</button>
+    <button onclick="showTrendLines(chart1);">Trend Lines</button>
+	<button onclick="hideChart(chart1);">Hide All</button>
+</div>
+<h2>Log Base 2 Entropy of Passwords Across Time</h2>
+<p>
+	This graph shows the Log Base 2 Entropy of a random sample of the passwords we collected when plotted against the time each data breach occurred.
+	This graph indicates a clear decrease in Log Base 2 Entropy from 2011 to 2012 with the rest of the years being relatively even. 
+	This spike in 2011 is most likely caused due to the Stratfor dataset being contained in that year.
+	Stratfor is one of two samples we collected and identified as a breach from a "Security" domain.
+	It is expected that companies specializing in security work have more stringent password requirements or more security-focused users who would be prone to using more complex passwords.
+	There is a minor increase in entropy from 2012 to 2013 and a bigger decrease from 2014 to 2015.
+</p>
+<div class="chart-wrapper" id="chart-distro2"></div>
+<div class="chart-options">
+    <p>Show: </p>
+    <button onclick="showBoxPlot(chart2);">Box Plot</button>
+    <button onclick="showNotchedBoxPlot(chart2);">Notched Box Plot</button>
+    <button onclick="showVPU(chart2);">Violin Plot Unbound</button>
+    <button onclick="showVPC(chart2);">Violin Plot Clamp to Data</button>
+    <button onclick="showBeanPlot(chart2);">Bean Plot</button>
+    <button onclick="showBeeswarmPlot(chart2);">Beeswarm Plot</button>
+    <button onclick="showScatterPlot(chart2);">Scatter Plot</button>
+    <button onclick="showTrendLines(chart2);">Trend Lines</button>
+	<button onclick="hideChart(chart2);">Hide All</button>
+</div>
+
+<h1>Password Entropy Across Domains</h1>
+<h2>Shannon Entropy of Passwords Across Domains</h2>
+<p>
+	This graph shows the Shannon Entropy of a random sample of the passwords we collected when plotted against the domain of each sample.
+	Domains were categorized into 6 categories: Adult, Business, General, Security, Dating, and Gaming.
+	According to the graph, there are no clear winners in terms of password entropy across the six domains we looked at. Security is slightly higher here, but significantly more exaggerated in the following graph.
+</p>
+<div class="chart-wrapper" id="chart-distro3"></div>
+<div class="chart-options">
+    <p>Show: </p>
+    <button onclick="showBoxPlot(chart3);">Box Plot</button>
+    <button onclick="showNotchedBoxPlot(chart3);">Notched Box Plot</button>
+    <button onclick="showVPU(chart3);">Violin Plot Unbound</button>
+    <button onclick="showVPC(chart3);">Violin Plot Clamp to Data</button>
+    <button onclick="showBeanPlot(chart3);">Bean Plot</button>
+    <button onclick="showBeeswarmPlot(chart3);">Beeswarm Plot</button>
+    <button onclick="showScatterPlot(chart3);">Scatter Plot</button>
+    <button onclick="showTrendLines(chart3);">Trend Lines</button>
+	<button onclick="hideChart(chart3);">Hide All</button>
+</div>
+<h2>Log Base 2 Entropy of Passwords Across Domains</h2>
+<p>
+	This graph shows the Log Base 2 Entropy of a random sample of the passwords we collected when plotted against the domain of each sample.
+	While the Shannon Entropy graph did not have a clear discernable victor in terms of highest median password entropy, the Log Base 2 graph does.
+	As anticipated, the Security domain performed significantly higher in regards to the IQR. The data was heavily skewed towards the lower end, however the Q1 value of 3.86 is inline with the Q3 values of Adult, General, and Dating.
+	As explained previously, this is most likely due to the password requirements in place at the Security domains or the users who are more active in their password security measures creating extensively complex passwords.
+</p>
+<div class="chart-wrapper" id="chart-distro4"></div>
+<div class="chart-options">
+    <p>Show: </p>
+    <button onclick="showBoxPlot(chart4);">Box Plot</button>
+    <button onclick="showNotchedBoxPlot(chart4);">Notched Box Plot</button>
+    <button onclick="showVPU(chart4);">Violin Plot Unbound</button>
+    <button onclick="showVPC(chart4);">Violin Plot Clamp to Data</button>
+    <button onclick="showBeanPlot(chart4);">Bean Plot</button>
+    <button onclick="showBeeswarmPlot(chart4);">Beeswarm Plot</button>
+    <button onclick="showScatterPlot(chart4);">Scatter Plot</button>
+    <button onclick="showTrendLines(chart4);">Trend Lines</button>
+	<button onclick="hideChart(chart4);">Hide All</button>
+</div>
+
+<script src="d3-js/distrochart.js" charset="utf-8"></script>
+<script src="graphactions.js"</script>
+<script src="ds3actions.js"</script>
+</body>
+</html>
